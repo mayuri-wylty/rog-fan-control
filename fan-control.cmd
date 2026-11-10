@@ -107,7 +107,7 @@ if ($mode -eq 'restore') {
 # 档位表：二档(默认) 约 CPU7000/GPU7800 RPM；一档 满速 约 8300-8400 RPM
 $gears = @{
     1 = @{ cpu = 255; gpu = 255; name = '一档 满速 (约 8400 RPM)' }
-    2 = @{ cpu = 200; gpu = 230; name = '二档 (约 CPU 7000 / GPU 7800 RPM)' }
+    2 = @{ cpu = 235; gpu = 215; name = '二档 (CPU 偏高 / GPU 偏低)' }
 }
 $Seconds = 0; $SimKeys = ''
 if ($mode -eq 'test') { $Seconds = [int]$argv[1]; if ($argv.Count -gt 2) { $SimKeys = $argv[2] } }

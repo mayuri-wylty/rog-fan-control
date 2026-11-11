@@ -114,6 +114,10 @@ if ($mode -eq 'test') { $Seconds = [int]$argv[1]; if ($argv.Count -gt 2) { $SimK
 
 $host.UI.RawUI.WindowTitle = 'Fan MAX - 按 1=一档  2=二档  关闭窗口/Ctrl+C=恢复默认'
 [Atk]::Open()
+if (Test-Path $Backup) {
+    $r0 = Restore-Range
+    Write-Host ("检测到上次未正常退出，已自动恢复为 cpu={0} gpu={1}" -f $r0.cpu, $r0.gpu) -ForegroundColor Yellow
+}
 Save-Backup
 $b = Read-Backup
 [Atk]::RestoreCpu = [uint32]$b.cpu; [Atk]::RestoreGpu = [uint32]$b.gpu
